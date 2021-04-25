@@ -22,7 +22,7 @@ class MultiApp:
 if __name__ == '__main__':
     app = MultiApp()
 
-    st.markdown("""# Titulo""")
+    st.markdown("""# MOEA Fingerprint Generator""")
 
     app.add_app('Home', home.app)
     app.add_app('Data extractor', main_extract.app)

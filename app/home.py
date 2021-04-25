@@ -19,9 +19,9 @@ def app():
         """)
 
     st.markdown("""###""")
-    with st.beta_expander('Script explanation'):
+    with st.beta_expander('Data Extractor'):
         st.markdown("""
-        ### Script explanation
+        ### Data Extractor explanation:
 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
         labore et dolore magna aliqua. Facilisis leo vel fringilla est ullamcorper eget nulla. 
@@ -30,9 +30,9 @@ def app():
         """)
 
     st.markdown("""###""")
-    with st.beta_expander('Optimizer'):
+    with st.beta_expander('Generator'):
         st.markdown("""
-        ### Optimizer
+        ### Generator explanation:
 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
         labore et dolore magna aliqua. Facilisis leo vel fringilla est ullamcorper eget nulla. 
@@ -44,5 +44,8 @@ def app():
     st.markdown("""#""")
     with st.beta_expander('About the author'):
             st.markdown("""
-            Placeholder
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua. Facilisis leo vel fringilla est ullamcorper eget nulla. 
+            Aenean euismod elementum nisi quis eleifend quam. Sed felis eget velit aliquet sagittis id consectetur. 
+            Ac odio tempor orci dapibus ultrices in iaculis nunc sed. 
             """)

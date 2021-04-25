@@ -16,7 +16,7 @@ def _bin_downloader(bin_file_path, file_label='File'):
 def app():
         #@ ----------------------------------------------------------------------------------------------------------
         #@ Page title
-        st.markdown("""# **Extract Data**""")
+        st.markdown("""# **Data Extractor**""")
 
         example_fp_path = './app/data_extractor/examples/example_fp.csv'
         example_cntb_path = './app/data_extractor/examples/example_contribution.csv'

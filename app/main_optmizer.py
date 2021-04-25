@@ -16,7 +16,7 @@ def _bin_downloader(bin_file_path, file_label='File'):
 def app():
         #@ ----------------------------------------------------------------------------------------------------------
         #@ Page title
-        st.markdown("""# **Optimizer**""")
+        st.markdown("""# **Generator**""")
 
         EXAMPLE_JSON_PATH = './app/optimizer/examples/example_json.json'
         RESULT_PATH = './app/optimizer/output/generated_fp.csv'
