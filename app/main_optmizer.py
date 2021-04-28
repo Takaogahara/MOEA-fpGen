@@ -43,6 +43,10 @@ def app():
             N_CONSTR = 2
 
             N_GEN = st.sidebar.slider('Generations', min_value=10, max_value=1000, value=100, step=10)
+            function_dict = {'Fixed mean':'Fixed mean', 'Variable mean':'Variable mean'}
+            user_function = st.sidebar.selectbox('Choose optimization algorithm', list(user_function.keys()))
+            selected_function = user_function[user_algorithm]
+
             algorithm_dict = {'NSGA2':'NSGA2', 'NSGA3':'NSGA3', 'MOEA/D':'MOEA/D', 'C-TAEA':'C-TAEA'}
             user_algorithm = st.sidebar.selectbox('Choose optimization algorithm', list(algorithm_dict.keys()))
             selected_algorithm = algorithm_dict[user_algorithm]
@@ -80,7 +84,7 @@ def app():
 
 
             if st.button('Generate!'):
-                compute = Optimizer(N_VAR, N_OBJ, N_CONSTR, N_GEN, selected_method, data, RESULT_PATH)
+                compute = Optimizer(N_VAR, N_OBJ, N_CONSTR, N_GEN, selected_method, data, RESULT_PATH, selected_function)
 
                 with st.spinner('Generating fingerprints...'):
                     compute.execute()

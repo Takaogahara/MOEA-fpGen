@@ -1,5 +1,5 @@
 import numpy as np
-
+import random
 
 # @ -------------------------------------------------------------------------
 
@@ -33,6 +33,24 @@ class Function:
             else:
                 function = function + \
                     f'abs({self.mean_full[iter_gen]} - x[{iter_gen}]) + '
+
+        return function
+
+
+    def full_dist_variable(self):
+        '''
+        Euclidian distance from gen FP to mean notable FP
+        '''
+        function = ''
+        for iter_gen in range(1, len(self.mean_full)):
+            scale = random.uniform(-1, 1)
+            
+            if iter_gen == len(self.mean_full)-1:
+                function = function + \
+                    f'abs({self.mean_full[iter_gen] + (self.mean_full[iter_gen] * scale)} - x[{iter_gen}])'
+            else:
+                function = function + \
+                    f'abs({self.mean_full[iter_gen] + (self.mean_full[iter_gen] * scale)} - x[{iter_gen}]) + '
 
         return function
 

@@ -11,8 +11,8 @@ from app.optimizer.utils import *
 
 class Optimizer:
 
-    def __init__(self, N_VAR:int, N_OBJ:int, N_CONSTR:int,
-            N_GEN:int, selected_method, jsondata, outputpath:str):
+    def __init__(self, N_VAR:int, N_OBJ:int, N_CONSTR:int, N_GEN:int,
+                    selected_method, jsondata, outputpath:str, selected_function:str):
 
         self.N_VAR = N_VAR
         self.N_OBJ = N_OBJ
@@ -21,10 +21,16 @@ class Optimizer:
         self.selected_method = selected_method
         self.jsondata = jsondata
         self.outputpath = outputpath
+        self.selected_function = selected_function
 
     def execute(self):
 
-        problem = FullFP(self.N_VAR, self.N_OBJ, self.N_CONSTR, self.jsondata)
+        if self.selected_function == 'Fixed mean':
+            problem = FullFP(self.N_VAR, self.N_OBJ, self.N_CONSTR, self.jsondata)
+
+        elif self.selected_function == 'Variable mean':
+            problem = FullFPVariable(self.N_VAR, self.N_OBJ, self.N_CONSTR, self.jsondata)
+
 
         if self.selected_method['algorithm'] == 'NSGA2':
             algorithm = NSGA2(pop_size=self.selected_method['parameters'])
