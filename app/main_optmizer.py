@@ -71,6 +71,7 @@ def app():
 
 
             st.info(f'Number of variables (fingerprint): {N_VAR}')
+            st.info(f'optimization problem: {selected_function}')
             st.info(f'Optimization algorithm: {selected_algorithm}')
             st.info(f'Generations: {N_GEN}')
 
