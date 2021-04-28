@@ -44,8 +44,8 @@ def app():
 
             N_GEN = st.sidebar.slider('Generations', min_value=10, max_value=1000, value=100, step=10)
             function_dict = {'Fixed mean':'Fixed mean', 'Variable mean':'Variable mean'}
-            user_function = st.sidebar.selectbox('Choose optimization algorithm', list(user_function.keys()))
-            selected_function = user_function[user_algorithm]
+            user_function = st.sidebar.selectbox('Choose optimization problem', list(user_function.keys()))
+            selected_function = user_function[user_function]
 
             algorithm_dict = {'NSGA2':'NSGA2', 'NSGA3':'NSGA3', 'MOEA/D':'MOEA/D', 'C-TAEA':'C-TAEA'}
             user_algorithm = st.sidebar.selectbox('Choose optimization algorithm', list(algorithm_dict.keys()))
