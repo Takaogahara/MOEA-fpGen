@@ -19,7 +19,7 @@ def app():
         st.markdown("""# **Generator**""")
 
         EXAMPLE_JSON_PATH = './app/optimizer/examples/example_json.json'
-        RESULT_PATH = './app/optimizer/output/generated_fp.csv'
+        RESULT_PATH = './app/optimizer/data/generated_fp.csv'
 
         POP_SIZE = None
         N_PARTITIONS = None
