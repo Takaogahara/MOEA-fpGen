@@ -1,11 +1,15 @@
+# External imports
 from pymoo.model.problem import Problem
 import numpy as np
 
+# Local imports
 from app.optimizer.function import Function, Constrain
 
-#@ -------------------------------------------------------------------------
 
 class Baseline(Problem):
+    """
+    Baseline problem definition
+    """
 
     def __init__(self):
         super().__init__(n_var=2,
@@ -25,11 +29,13 @@ class Baseline(Problem):
         out["F"] = [f1, f2]
         out["G"] = [g1, g2]
 
-#@ -------------------------------------------------------------------------
 
 class FullFP(Problem):
-    
-    def __init__(self, n_var:int, n_obj:int, n_constr:int, pathtodata):
+    """
+    Calculate full fingerprint sequency
+    """
+
+    def __init__(self, n_var: int, n_obj: int, n_constr: int, pathtodata):
         self.data = pathtodata
         min_searchspace = list(self.data['min'][0]['active'].values())
         max_searchspace = list(self.data['max'][0]['active'].values())
@@ -57,8 +63,7 @@ class FullFP(Problem):
         f2_str = func.full_dist()
 
         g1_str = const.full_sum('+', '-')  # lower or equal <=
-        g2_str = const.full_sumnot('-', '+') # greater or equal >=
-
+        g2_str = const.full_sumnot('-', '+')  # greater or equal >=
 
         f1 = eval(f1_str)
         f2 = eval(f2_str)
@@ -69,12 +74,14 @@ class FullFP(Problem):
         out["F"] = [f1, f2]
         out["G"] = [g1, g2]
 
-#@ -------------------------------------------------------------------------
-
 
 class FullFPVariable(Problem):
-    
-    def __init__(self, n_var:int, n_obj:int, n_constr:int, pathtodata):
+    """
+    Calculate full fingerprint sequency including variance
+    in fingerprint values
+    """
+
+    def __init__(self, n_var: int, n_obj: int, n_constr: int, pathtodata):
         self.data = pathtodata
         min_searchspace = list(self.data['min'][0]['active'].values())
         max_searchspace = list(self.data['max'][0]['active'].values())
@@ -102,8 +109,7 @@ class FullFPVariable(Problem):
         f2_str = func.full_dist_variable()
 
         g1_str = const.full_sum('+', '-')  # lower or equal <=
-        g2_str = const.full_sumnot('-', '+') # greater or equal >=
-
+        g2_str = const.full_sumnot('-', '+')  # greater or equal >=
 
         f1 = eval(f1_str)
         f2 = eval(f2_str)
@@ -114,11 +120,15 @@ class FullFPVariable(Problem):
         out["F"] = [f1, f2]
         out["G"] = [g1, g2]
 
-#@ -------------------------------------------------------------------------
+# @ -------------------------------------------------------------------------
+
 
 class NotableFP(Problem):
+    """
+    Calculate only notable fingerprint sequency
+    """
 
-    def __init__(self, n_var:int, n_obj:int, n_constr:int, pathtodata):
+    def __init__(self, n_var: int, n_obj: int, n_constr: int, pathtodata):
         self.data = pathtodata
         min_searchspace = self.data['notable'][0]['min']
         max_searchspace = self.data['notable'][0]['max']
@@ -146,22 +156,20 @@ class NotableFP(Problem):
         f2_str = func.notable_dist()
 
         g1_str = const.notable_sum('+', '-')  # lower or equal <=
-        g2_str = const.notable_sumnot('-', '+') # greater or equal >=
-
+        g2_str = const.notable_sumnot('-', '+')  # greater or equal >=
 
         f1 = eval(f1_str)
         f2 = eval(f2_str)
         g1 = eval(g1_str)
-        g2 = eval(g2_str) 
+        g2 = eval(g2_str)
 
         out["F"] = [f1, f2]
         out["G"] = [g1, g2]
 
-#@ -------------------------------------------------------------------------
 
 class EvalTest(Problem):
-    
-    def __init__(self, n_var:int, n_obj:int, n_constr:int, pathtodata):
+
+    def __init__(self, n_var: int, n_obj: int, n_constr: int, pathtodata):
         self.data = pathtodata
         min_searchspace = self.data['notable'][0]['min']
         max_searchspace = self.data['notable'][0]['max']
@@ -186,8 +194,7 @@ class EvalTest(Problem):
         f2_str = func.notable_dist()
 
         g1_str = const.notable_sum('+', '-')  # lower or equal <=
-        g2_str = const.notable_sumnot('-', '+') # greater or equal >=
-
+        g2_str = const.notable_sumnot('-', '+')  # greater or equal >=
 
         f1 = eval(f1_str)
         f2 = eval(f2_str)
@@ -197,5 +204,3 @@ class EvalTest(Problem):
 
         out["F"] = [f1, f2]
         out["G"] = [g1, g2]
-
-#@ -------------------------------------------------------------------------
